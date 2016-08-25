@@ -10,14 +10,14 @@ class PriorityQueue {
 	}
 
 	push(data, priority) {
-		if(this.heap.size() != this.maxSize)
+		if(this.heap.size() !== this.maxSize)
 			this.heap.push(data, priority);
 		else
 			throw new Error("Queue has max size");
 	}
 
 	shift() {
-		if(this.heap.size() != 0)
+		if(this.heap.size() !== 0)
 			var removed = this.heap.pop();
 		else
 			throw new Error("Queue is empty");
@@ -30,7 +30,7 @@ class PriorityQueue {
 	}
 
 	isEmpty() {
-		return this.heap.size() == 0 ? true : false;
+		return this.heap.size() === 0 ? true : false;
 	}
 }
 

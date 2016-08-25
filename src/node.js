@@ -19,11 +19,11 @@ class Node {
 	}
 
 	removeChild(node) {
-		if(node == this.left) {
+		if(node === this.left) {
 			this.left = null;
 			node.parent = null;
 		}
-		else if(node == this.right) {
+		else if(node === this.right) {
 			this.right = null;
 			node.parent = null;
 		}
@@ -32,7 +32,7 @@ class Node {
 	}
 
 	remove() {
-		if(this.parent != null)
+		if(this.parent !== null)
 			this.parent.removeChild(this);
 	}
 
@@ -40,9 +40,9 @@ class Node {
 
 		function swapIfNotHaveRightSisterRoot(node) {
 	
-			if(node.left != null)
+			if(node.left !== null)
 				node.left.parent = node.parent;
-			if(node.right != null)
+			if(node.right !== null)
 				node.right.parent = node.parent;
 			node.right = node.parent.right;
 			node.left = node.parent;
@@ -56,9 +56,9 @@ class Node {
 		function swapIfHaveRightSisterRoot(node) {
 		
 			node.parent.right.parent = node;
-			if(node.left != null)
+			if(node.left !== null)
 				node.left.parent = node.parent;
-			if(node.right != null)
+			if(node.right !== null)
 				node.right.parent = node.parent;
 			node.right = node.parent.right;
 			node.left = node.parent;
@@ -71,9 +71,9 @@ class Node {
 
 		function swapIfNotHaveLeftSisterRoot(node) {
 
-			if(node.left != null)
+			if(node.left !== null)
 				node.left.parent = node.parent;
-			if(node.right != null)
+			if(node.right !== null)
 				node.right.parent = node.parent;
 			node.right = node.parent;
 			node.left = node.parent.left;
@@ -87,9 +87,9 @@ class Node {
 		function swapIfHaveLeftSisterRoot(node) {
 			
 			node.parent.left.parent = node;
-			if(node.left != null)
+			if(node.left !== null)
 				node.left.parent = node.parent;
-			if(node.right != null)
+			if(node.right !== null)
 				node.right.parent = node.parent;
 			node.right = node.parent;
 			node.left = node.parent.left;
@@ -101,38 +101,38 @@ class Node {
 
 		}
 
-		if (this.parent != null) {   //если есть родитель
+		if (this.parent !== null) {   //если есть родитель
 			var tmp = new Node(null, null); // временная переменаая
 			tmp.left = this.left;
 			tmp.right = this.right;
 			tmp.parent = this.parent;
-			if(this.parent.parent != null) {       // если у родителя есть родитель
+			if(this.parent.parent !== null) {       // если у родителя есть родитель
 
-				if(this.parent.parent.left == this.parent) {      //если родитель узла является левым ребенком
+				if(this.parent.parent.left === this.parent) {      //если родитель узла является левым ребенком
 					this.parent.parent.left = this;
 				}
 
-				else if(this.parent.parent.right == this.parent) {   // если родитель узла является правым ребенком
+				else if(this.parent.parent.right === this.parent) {   // если родитель узла является правым ребенком
 					this.parent.parent.right = this;
 				}
 			}
-			else if(this.parent.parent == null) {     //если у родителя нет родителя
+			else if(this.parent.parent === null) {     //если у родителя нет родителя
 				this.parent.parent = null;
 			}
 
-			if(this.parent.right == null && this.parent.left == this) { //нету сестринского узла и сам узел слева
+			if(this.parent.right === null && this.parent.left === this) { //нету сестринского узла и сам узел слева
 				swapIfNotHaveRightSisterRoot(this);
 			}
 
-			else  if (this.parent.right.parent == this.parent && this.parent.right != this) { //если у узла есть сестринский узел и он справа
+			else  if (this.parent.right.parent === this.parent && this.parent.right !== this) { //если у узла есть сестринский узел и он справа
 				swapIfHaveRightSisterRoot(this);
 			}
 
-			else if(this.parent.left == null && this.parent.right == this) { // нету сестр. узла и сам узел справа
+			else if(this.parent.left === null && this.parent.right === this) { // нету сестр. узла и сам узел справа
 				swapIfNotHaveLeftSisterRoot(this);
 			}
 
-			else if(this.parent.left.parent == this.parent && this.parent.left != this) { //если у узла есть сестринский узел и он слева
+			else if(this.parent.left.parent === this.parent && this.parent.left !== this) { //если у узла есть сестринский узел и он слева
 				swapIfHaveLeftSisterRoot(this);
 			}
 		}
