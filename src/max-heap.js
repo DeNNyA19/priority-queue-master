@@ -138,7 +138,7 @@ class MaxHeap {
                 else
                     swap = "not";
             }
-            var changeParentNodesAndSwap = (node, swap) => { //поддерживаем массив и перестанавливаем
+            var changeParentNodesAndSwap = (node, swap) => { //поддерживаем массив и переставляем элементы
                 var children;
                 switch(swap) {
                     case "left":
